@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: characters
+  namespace: characters-dpy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: characters
+      metadata: characters
+  template:
+    metadata:
+      labels:
+        name: characters
+        metadata: characters
+    spec:
+      containers:
+      - name: characters
+        image: ahmadwaizam/characters:1.0
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: characters
+  namespace: characters-dpy
+spec:
+  #type: LoadBalancer
+  ports:
+    - port: 80
+      #nodePort: 30080
+  selector:
+    name: characters
+---
