@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: characters
-        image: ahmadwaizam/characters:1.0
+        image: ahmadwaizam/characters:2.0
         ports:
         - containerPort: 8081
 ---
